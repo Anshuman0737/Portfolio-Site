@@ -202,16 +202,26 @@ header {
 
 /* ===== Contact ===== */
 /* Contact Icons */
-.contact-icons a {
-  margin: 0 15px;
-  font-size: 2rem;
-  color: #ff6b00;
-  transition: transform 0.3s, color 0.3s;
+/* Contact Icons (SVG logos) */
+.contact-icons {
+  margin-top: 20px;
 }
 
-.contact-icons a:hover {
+.contact-icons a {
+  margin: 0 15px;
+  display: inline-block;
+}
+
+.contact-icons img.icon {
+  width: 40px;
+  height: 40px;
+  filter: invert(51%) sepia(95%) saturate(7488%) hue-rotate(360deg) brightness(97%) contrast(108%);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.contact-icons img.icon:hover {
   transform: scale(1.2);
-  color: #fff;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
 }
 
 
