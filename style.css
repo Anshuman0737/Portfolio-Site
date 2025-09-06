@@ -201,6 +201,7 @@ header {
 }
 
 /* ===== Contact ===== */
+/* Contact Icons */
 .contact-icons a {
   margin: 0 15px;
   font-size: 2rem;
@@ -212,6 +213,7 @@ header {
   transform: scale(1.2);
   color: #fff;
 }
+
 
 /* ===== Footer ===== */
 footer {
