@@ -17,14 +17,36 @@
 </head>
 <body>
 
+  <!-- ===== Navbar ===== -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Portfolio</h1>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <!-- ===== Hero Section ===== -->
   <section id="hero">
     <div class="hero-container">
       <h1>Hi, I'm <span class="highlight">Anshuman Pandey</span></h1>
       <h2><span id="typing"></span></h2>
       <div class="hero-buttons">
-        <a href="#projects" class="btn">View Projects</a>
-        <a href="#contact" class="btn btn-outline">Contact Me</a>
+        <a href="resume.pdf" target="_blank" class="btn"><i class="fas fa-file-alt"></i> View Resume</a>
+        <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+      </div>
+      <div class="social-icons">
+        <a href="mailto:pandeyanshuman212@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/anshumanpandey07" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Anshuman0737" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://leetcode.com/u/anshuman737" target="_blank"><i class="fas fa-code"></i></a>
       </div>
     </div>
   </section>
@@ -52,6 +74,8 @@
       <div class="skill-card"><i class="fab fa-node"></i> Node.js</div>
       <div class="skill-card"><i class="fas fa-database"></i> MySQL</div>
       <div class="skill-card"><i class="fas fa-brain"></i> Machine Learning</div>
+      <div class="skill-card"><i class="fas fa-network-wired"></i> REST APIs</div>
+      <div class="skill-card"><i class="fab fa-docker"></i> Docker</div>
     </div>
   </section>
 
@@ -62,17 +86,17 @@
       <div class="project-card">
         <h3>TheatreNow</h3>
         <p>Movie Ticket Booking System with seat mapping and role-based access.</p>
-        <a href="#">GitHub ↗</a>
+        <a href="#"><i class="fab fa-github"></i> GitHub</a>
       </div>
       <div class="project-card">
         <h3>MindWave</h3>
         <p>EEG Emotion Detection with TensorFlow and live Streamlit dashboard.</p>
-        <a href="#">GitHub ↗</a>
+        <a href="#"><i class="fab fa-github"></i> GitHub</a>
       </div>
       <div class="project-card">
         <h3>B2Me</h3>
         <p>Online Bookstore System with authentication, cart, and checkout.</p>
-        <a href="#">GitHub ↗</a>
+        <a href="#"><i class="fab fa-github"></i> GitHub</a>
       </div>
     </div>
   </section>
@@ -93,10 +117,10 @@
   <section id="achievements" data-aos="zoom-in">
     <h2>Achievements</h2>
     <ul>
-      <li>Ranked in top 18.7% globally on LeetCode (200+ problems solved)</li>
-      <li>PPO Internship at Mawai Infotech</li>
-      <li>Organized coding workshops for under-privileged students</li>
-      <li>Led 200+ students as President of CODE Club</li>
+      <li><i class="fas fa-trophy"></i> Ranked in top 18.7% globally on LeetCode (200+ problems solved)</li>
+      <li><i class="fas fa-briefcase"></i> PPO Internship at Mawai Infotech</li>
+      <li><i class="fas fa-users"></i> Organized coding workshops for under-privileged students</li>
+      <li><i class="fas fa-star"></i> Led 200+ students as President of CODE Club</li>
     </ul>
   </section>
 
@@ -112,8 +136,9 @@
     </div>
   </section>
 
+  <!-- ===== Footer ===== -->
   <footer>
-    <p>© 2025 Anshuman Pandey. All rights reserved.</p>
+    <p>© 2025 Anshuman Pandey | Built with ❤️ using HTML, CSS & JS</p>
   </footer>
 
   <!-- Scripts -->
