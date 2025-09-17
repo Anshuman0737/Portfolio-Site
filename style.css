@@ -1,21 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
 :root {
-  --bg-dark: #15181b;
-  --glass-dark: rgba(30, 32, 34, 0.85);
+  --bg-dark: #101014;
+  --glass-dark: rgba(24, 24, 32, 0.85);
   --glass-blur: 18px;
-  --gradient: linear-gradient(90deg,#00ffe7 0%,#387aff 100%);
-  --gradient-text: linear-gradient(90deg,#00ffe7 0%,#387aff 100%);
+  --gradient: linear-gradient(90deg, #ff0080 0%, #7928ca 100%);
+  --gradient-alt: linear-gradient(90deg, #00ffd0 0%, #1e90ff 100%);
   --primary: #fff;
   --secondary: #b3b3b3;
-  --accent: #00ffe7;
-  --link-bg: rgba(56,122,255,0.12);
-  --shadow: 0 6px 32px rgba(0,0,0,0.18);
-  --card-radius: 18px;
+  --accent: #ff0080;
+  --accent2: #1e90ff;
+  --link-bg: rgba(255,0,128,0.12);
+  --shadow: 0 8px 32px rgba(0,0,0,0.24);
+  --card-radius: 20px;
+  --font-family: 'Inter', 'SF Pro Display', 'Segoe UI', 'Roboto', Arial, sans-serif;
 }
 
 body {
   background: var(--bg-dark);
   color: var(--primary);
-  font-family: 'SF Pro Display', 'Segoe UI', 'Roboto', Arial, sans-serif;
+  font-family: var(--font-family);
   min-height: 100vh;
   position: relative;
   scroll-behavior: smooth;
@@ -27,7 +31,8 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse at 40% 30%, #387aff55 40%, transparent 60%), radial-gradient(ellipse at 80% 80%, #00ffe755 30%, transparent 70%);
+  background: radial-gradient(ellipse at 40% 30%, #7928ca55 40%, transparent 60%),
+              radial-gradient(ellipse at 80% 80%, #ff008055 30%, transparent 70%);
   filter: blur(60px);
 }
 
@@ -55,166 +60,186 @@ nav#navbar {
   top: 0;
   z-index: 99;
   box-shadow: var(--shadow);
+  background: rgba(18,18,24,0.92);
 }
 
 nav#navbar ul {
   display: flex;
   justify-content: center;
-  gap: 32px;
+  gap: 38px;
   padding: 18px 0;
 }
 
 nav#navbar a {
   color: var(--primary);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.08rem;
-  padding: 6px 18px;
+  padding: 8px 20px;
   border-radius: 16px;
   transition: color 0.19s, background 0.19s;
+  letter-spacing: 0.04em;
 }
 
 nav#navbar a:hover {
   background: var(--link-bg);
   color: var(--accent);
+  box-shadow: 0 0 8px var(--accent), 0 0 2px var(--accent2);
 }
 
 .hero {
   max-width: 660px;
   margin: 0 auto;
-  padding: 32px 18px 26px 18px;
+  padding: 36px 22px 30px 22px;
   box-shadow: var(--shadow);
   border-radius: var(--card-radius);
   position: relative;
   z-index: 2;
+  background: rgba(18, 18, 24, 0.95);
 }
 
 h1.gradient-text, h2.gradient-text {
-  background: var(--gradient-text);
+  background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 800;
   margin-bottom: 10px;
+  letter-spacing: 0.03em;
+  font-family: var(--font-family);
 }
 
 .subtitle {
-  font-size: 1.32rem;
+  font-size: 1.34rem;
   color: var(--secondary);
-  margin-bottom: 18px;
+  margin-bottom: 22px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
 }
 
 .links {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .links a {
   background: var(--link-bg);
   color: var(--primary);
-  padding: 8px 18px;
-  margin: 0 7px 0 0;
-  border-radius: 22px;
+  padding: 10px 24px;
+  border-radius: 24px;
   font-size: 1rem;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0,255,231,0.08);
-  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 14px rgba(255,0,128,0.10);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   display: inline-block;
-  border: 1px solid rgba(0,255,231,0.05);
+  border: 1px solid rgba(255,0,128,0.07);
+  font-weight: 600;
 }
 
 .links a:hover {
-  background: var(--gradient);
-  color: #15181b;
+  background: var(--gradient-alt);
+  color: #101014;
+  box-shadow: 0 0 16px var(--accent), 0 0 8px var(--accent2);
   transform: scale(1.07);
 }
 
 .scroll-down {
-  margin-top: 32px;
+  margin-top: 36px;
   background: none;
   border: none;
-  color: var(--accent);
-  font-size: 2.5rem;
+  color: var(--accent2);
+  font-size: 2.7rem;
   cursor: pointer;
   animation: bounce 1.2s infinite;
 }
 
 @keyframes bounce {
   0%,100% { transform: translateY(0); }
-  50% { transform: translateY(10px); color: #fff;}
+  50% { transform: translateY(13px); color: #fff;}
 }
 
 main {
-  margin-top: 16px;
+  margin-top: 18px;
   z-index: 2;
   position: relative;
 }
 
 section {
-  max-width: 870px;
-  margin: 50px auto 0 auto;
-  padding: 32px 22px 28px 22px;
+  max-width: 900px;
+  margin: 55px auto 0 auto;
+  padding: 38px 26px 34px 26px;
   border-radius: var(--card-radius);
   transition: box-shadow 0.3s, background 0.3s;
   box-shadow: var(--shadow);
   position: relative;
   z-index: 2;
+  background: rgba(24, 24, 32, 0.93);
+  font-family: var(--font-family);
 }
 
 section h2 {
-  font-size: 2.0rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 22px;
   font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 ul, li {
   margin-bottom: 8px;
   list-style: none;
+  font-size: 1.08rem;
 }
 
 .exp-card, .project-card {
-  background: rgba(56,122,255,0.08);
-  margin-bottom: 18px;
-  padding: 18px;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0,255,231,0.12);
-  border: 1px solid rgba(56,122,255,0.08);
+  background: rgba(255,0,128,0.06);
+  margin-bottom: 22px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(255,0,128,0.14);
+  border: 1px solid rgba(255,0,128,0.09);
   transition: transform 0.2s, box-shadow 0.2s;
+  font-family: var(--font-family);
 }
 
 .exp-card:hover, .project-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 26px rgba(0,255,231,0.18);
+  box-shadow: 0 12px 34px #7928ca44, 0 0 22px #ff0080aa;
 }
 
 .exp-card h3, .project-card h3 {
   margin-bottom: 8px;
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.15rem;
 }
 
 .exp-card span {
   font-size: 1rem;
-  color: #387aff;
+  color: #7928ca;
 }
 
 form#contactForm {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 13px;
+  margin-top: 20px;
 }
 
 form#contactForm input, form#contactForm textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #387aff;
-  font-size: 1rem;
-  background: rgba(56,122,255,0.08);
+  padding: 11px;
+  border-radius: 10px;
+  border: 1px solid #7928ca;
+  font-size: 1.05rem;
+  background: rgba(255,0,128,0.06);
   color: var(--primary);
   outline: none;
   transition: border 0.2s;
+  font-family: var(--font-family);
 }
 
 form#contactForm input:focus, form#contactForm textarea:focus {
@@ -223,37 +248,40 @@ form#contactForm input:focus, form#contactForm textarea:focus {
 
 form#contactForm button {
   background: var(--gradient);
-  color: #15181b;
-  padding: 10px;
+  color: #fff;
+  padding: 11px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 1.08rem;
-  font-weight: 500;
+  font-size: 1.11rem;
+  font-weight: 600;
   transition: background 0.2s, color 0.2s;
+  font-family: var(--font-family);
 }
 
 form#contactForm button:hover {
-  background: linear-gradient(90deg,#387aff 0%,#00ffe7 100%);
+  background: linear-gradient(90deg,#1e90ff 0%,#ff0080 100%);
   color: #fff;
 }
 
 #formResponse {
-  color: var(--accent);
+  color: var(--accent2);
   margin-top: 8px;
   min-height: 22px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.04em;
 }
 
 footer {
   text-align: center;
-  padding: 16px 0;
-  background: var(--glass-dark);
+  padding: 19px 0;
+  background: rgba(18,18,24,0.98);
   color: var(--accent);
-  margin-top: 40px;
+  margin-top: 44px;
   border-radius: 0 0 var(--card-radius) var(--card-radius);
-  box-shadow: 0 -2px 12px rgba(0,255,231,0.05);
+  box-shadow: 0 -2px 12px rgba(255,0,128,0.08);
+  font-family: var(--font-family);
+  font-size: 1.06rem;
 }
 
 .animate-fade {
@@ -277,8 +305,8 @@ footer {
 }
 
 @media (max-width: 700px) {
-  header h1.gradient-text { font-size: 2rem;}
-  section { padding: 10px; }
-  nav#navbar ul { gap: 16px; }
+  header h1.gradient-text { font-size: 2.2rem;}
+  section { padding: 12px; }
+  nav#navbar ul { gap: 18px; }
   main { margin-top: 10px;}
 }
