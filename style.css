@@ -236,18 +236,18 @@ form#contactForm input, form#contactForm textarea {
   border: 1px solid #7928ca;
   font-size: 1.05rem;
   background: rgba(255,0,128,0.06);
-  color: var(--primary);
+  color: #fff;
   outline: none;
   transition: border 0.2s;
   font-family: var(--font-family);
 }
 
 form#contactForm input:focus, form#contactForm textarea:focus {
-  border: 1.5px solid var(--accent);
+  border: 1.5px solid #ff0080;
 }
 
 form#contactForm button {
-  background: var(--gradient);
+  background: linear-gradient(90deg, #ff0080 0%, #7928ca 100%);
   color: #fff;
   padding: 11px;
   border: none;
@@ -265,7 +265,7 @@ form#contactForm button:hover {
 }
 
 #formResponse {
-  color: var(--accent2);
+  color: #1e90ff;
   margin-top: 8px;
   min-height: 22px;
   font-weight: 600;
