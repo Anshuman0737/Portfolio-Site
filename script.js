@@ -1,9 +1,16 @@
-// Animate sections on scroll
-const animatedSections = document.querySelectorAll('section');
+// Animate sections on scroll (delayed for glass fade)
+document.querySelectorAll('.animate-fade').forEach((el, i) => {
+  el.style.animationDelay = `${0.2 + i * 0.15}s`;
+});
+
+const animatedSections = document.querySelectorAll('.animate-fade');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.style.opacity = '1';
-    entry.target.style.transform = 'translateY(0)';
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animated');
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'none';
+    }
   });
 }, { threshold: 0.2 });
 
@@ -15,24 +22,27 @@ function scrollToSection(id) {
   if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Navbar scroll effect
+// Navbar shadow on scroll
 window.addEventListener('scroll', () => {
   const navbar = document.getElementById('navbar');
-  if (window.scrollY > 100) {
-    navbar.style.boxShadow = '0 4px 12px rgba(30,58,138,0.18)';
+  if (window.scrollY > 50) {
+    navbar.style.boxShadow = '0 8px 32px rgba(0,0,0,0.18)';
   } else {
     navbar.style.boxShadow = '';
   }
 });
 
-// Contact form handler
+// Contact form handler with animation
 document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      document.getElementById('formResponse').textContent = "Message sent! Thank you 😊";
+      const resp = document.getElementById('formResponse');
+      resp.textContent = "Message sent! Thank you 😊";
       contactForm.reset();
+      resp.style.opacity = 0;
+      setTimeout(() => { resp.style.opacity = 1; }, 200);
     });
   }
 });
