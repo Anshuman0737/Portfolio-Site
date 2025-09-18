@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Anshuman Pandey | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="blur-bg"></div>
+  <div class="blur-bg" aria-hidden="true"></div>
 
   <header>
-    <nav id="navbar" class="glass">
+    <nav id="navbar" class="glass" role="navigation" aria-label="Main navigation">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -21,16 +21,24 @@
       </ul>
     </nav>
 
-    <div class="container hero glass animate-fade">
-      <h1 class="gradient-text">Anshuman Pandey</h1>
-      <p class="subtitle animate-slide">Full-Stack Developer | AI Enthusiast</p>
+    <div class="container hero glass animate-fade" role="banner">
+      <!-- animated typed greeting -->
+      <div class="typed-wrap" aria-hidden="false">
+        <span id="typed" class="typed" aria-live="polite"></span>
+        <span class="cursor" aria-hidden="true">|</span>
+      </div>
+
+      <h1 class="gradient-name">Anshuman Pandey</h1>
+      <p class="subtitle">Full-Stack Developer | AI Enthusiast</p>
+
       <div class="links animate-fade">
         <a href="mailto:pandeyanshuman212@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/anshuman0" target="_blank">LinkedIn</a>
-        <a href="https://github.com/Anshuman0737" target="_blank">GitHub</a>
-        <a href="https://leetcode.com/u/anshuman737" target="_blank">LeetCode</a>
+        <a href="https://www.linkedin.com/in/anshuman0" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/Anshuman0737" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://leetcode.com/u/anshuman737" target="_blank" rel="noopener noreferrer">LeetCode</a>
       </div>
-      <button class="scroll-down" onclick="scrollToSection('about')">▼</button>
+
+      <button class="scroll-down" onclick="scrollToSection('about')" aria-label="Scroll down">▼</button>
     </div>
   </header>
 
@@ -53,7 +61,7 @@
     <section id="experience" class="glass animate-fade">
       <h2 class="gradient-text">Professional Experience</h2>
       <div class="exp-card">
-        <h3>Full-Stack Developer Intern <span>Manavi Infotech Ltd.</span></h3>
+        <h3>Full-Stack Developer Intern <span>Mawai Infotech Ltd.</span></h3>
         <p>Jun 2025 – Present</p>
         <ul>
           <li>Authored ERP modules in PHP & MySQL, streamlining workflows for 500+ client users.</li>
@@ -97,7 +105,6 @@
     <section id="contact" class="glass animate-fade">
       <h2 class="gradient-text">Contact</h2>
 
-      <!-- Formspree contact form - stays the same but styled responsively -->
       <form id="contactForm" action="https://formspree.io/f/xeolbnrw" method="POST" autocomplete="on">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
