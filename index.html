@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Anshuman Pandey | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="blur-bg"></div>
+
   <header>
     <nav id="navbar" class="glass">
       <ul>
@@ -18,24 +20,27 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+
     <div class="container hero glass animate-fade">
       <h1 class="gradient-text">Anshuman Pandey</h1>
       <p class="subtitle animate-slide">Full-Stack Developer | AI Enthusiast</p>
       <div class="links animate-fade">
         <a href="mailto:pandeyanshuman212@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/anshuman-pandey-51085225a/" target="_blank">LinkedIn</a>
+        <a href="https://linkedin.com/in/anshumanpandey07" target="_blank">LinkedIn</a>
         <a href="https://github.com/Anshuman0737" target="_blank">GitHub</a>
         <a href="https://leetcode.com/u/anshuman737" target="_blank">LeetCode</a>
       </div>
       <button class="scroll-down" onclick="scrollToSection('about')">▼</button>
     </div>
   </header>
+
   <main>
     <section id="about" class="glass animate-fade">
       <h2 class="gradient-text">About Me</h2>
       <p>B.Tech in Computer Science Engineering (AI Specialisation), Bennett University, CGPA: 7.0</p>
       <p>Full-stack developer passionate about AI and building impactful tech solutions. I love solving problems and sharing knowledge.</p>
     </section>
+
     <section id="skills" class="glass animate-fade">
       <h2 class="gradient-text">Technical Skills</h2>
       <ul>
@@ -44,10 +49,11 @@
         <li><strong>Tools & Platforms:</strong> REST APIs, BEKT, NLP, Machine Learning, Deep Learning, Firebase, GCP, Docker, CI/CD</li>
       </ul>
     </section>
+
     <section id="experience" class="glass animate-fade">
       <h2 class="gradient-text">Professional Experience</h2>
       <div class="exp-card">
-        <h3>Full-Stack Developer Intern <span>Mawai Infotech Ltd.</span></h3>
+        <h3>Full-Stack Developer Intern <span>Manavi Infotech Ltd.</span></h3>
         <p>Jun 2025 – Present</p>
         <ul>
           <li>Authored ERP modules in PHP & MySQL, streamlining workflows for 500+ client users.</li>
@@ -56,8 +62,10 @@
         </ul>
       </div>
     </section>
+
     <section id="projects" class="glass animate-fade">
       <h2 class="gradient-text">Technical Projects</h2>
+
       <div class="project-card">
         <h3>TheatreNow – Movie Ticket Booking System</h3>
         <p><em>PHP, MySQL, Apache</em></p>
@@ -66,6 +74,7 @@
           <li>Optimized queries, built admin dashboard, improved performance by 25%.</li>
         </ul>
       </div>
+
       <div class="project-card">
         <h3>MindWave – EEG Emotion Detection</h3>
         <p><em>TensorFlow, Streamlit</em></p>
@@ -74,6 +83,7 @@
           <li>Streamlit dashboard with live visualizations, actionable insights.</li>
         </ul>
       </div>
+
       <div class="project-card">
         <h3>B2Me – Online Bookstore Management System</h3>
         <p><em>Java, MySQL</em></p>
@@ -83,50 +93,27 @@
         </ul>
       </div>
     </section>
+
     <section id="contact" class="glass animate-fade">
       <h2 class="gradient-text">Contact</h2>
-      <!-- Updated form to use Formspree -->
-      <form id="contactForm" action="https://formspree.io/f/xeolbnrw" method="POST">
+
+      <!-- Formspree contact form - stays the same but styled responsively -->
+      <form id="contactForm" action="https://formspree.io/f/xeolbnrw" method="POST" autocomplete="on">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
         <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+        <button type="submit" aria-label="Send Message">Send Message</button>
+        <div id="formResponse" role="status" aria-live="polite"></div>
       </form>
-      <div id="formResponse"></div>
     </section>
   </main>
+
   <footer class="glass">
     <div class="container">
       <p>© 2025 Anshuman Pandey</p>
     </div>
   </footer>
-  <script>
-    // Smooth scroll for scroll-down button
-    function scrollToSection(id) {
-      var el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
 
-    // Contact form AJAX submission for Formspree
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var form = this;
-      var data = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          document.getElementById('formResponse').textContent = "Thank you! Your message has been sent.";
-          form.reset();
-        } else {
-          document.getElementById('formResponse').textContent = "Oops! Something went wrong.";
-        }
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
