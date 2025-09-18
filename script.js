@@ -1,48 +1,50 @@
-// Animate sections on scroll (delayed for glass fade)
-document.querySelectorAll('.animate-fade').forEach((el, i) => {
-  el.style.animationDelay = `${0.2 + i * 0.15}s`;
-});
+// script.js - fixes mobile viewport sizing and attaches form AJAX to Formspree response handling
 
-const animatedSections = document.querySelectorAll('.animate-fade');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animated');
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'none';
-    }
-  });
-}, { threshold: 0.2 });
+// Fix mobile viewport height issues (Safari top/bottom UI) by creating --vh
+(function setVh() {
+  function updateVh() {
+    // 1% of the viewport height
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  updateVh();
+  window.addEventListener('resize', updateVh);
+})();
 
-animatedSections.forEach(el => observer.observe(el));
-
-// Smooth scroll to section
+// Smooth scroll helper used by the button
 function scrollToSection(id) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth' });
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
 }
 
-// Navbar shadow on scroll
-window.addEventListener('scroll', () => {
-  const navbar = document.getElementById('navbar');
-  if (window.scrollY > 50) {
-    navbar.style.boxShadow = '0 8px 32px rgba(0,0,0,0.18)';
-  } else {
-    navbar.style.boxShadow = '';
-  }
-});
+// Formspree AJAX submission + feedback
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('contactForm');
+  if (!form) return;
 
-// Contact form handler with animation
-document.addEventListener('DOMContentLoaded', () => {
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const resp = document.getElementById('formResponse');
-      resp.textContent = "Message sent! Thank you 😊";
-      contactForm.reset();
-      resp.style.opacity = 0;
-      setTimeout(() => { resp.style.opacity = 1; }, 200);
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    var responseEl = document.getElementById('formResponse');
+    responseEl.textContent = '';
+
+    fetch(form.action, {
+      method: form.method || 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res){
+      if (res.ok) {
+        responseEl.textContent = 'Thank you! Your message has been sent.';
+        form.reset();
+      } else {
+        res.json().then(function(json){
+          responseEl.textContent = (json && json.error) ? json.error : 'Oops! Something went wrong.';
+        }).catch(function(){
+          responseEl.textContent = 'Oops! Something went wrong.';
+        });
+      }
+    }).catch(function(){
+      responseEl.textContent = 'Network error. Please try again.';
     });
-  }
+  });
 });
